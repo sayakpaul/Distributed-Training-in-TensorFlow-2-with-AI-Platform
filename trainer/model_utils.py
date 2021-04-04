@@ -17,6 +17,7 @@ def get_model():
     x = base_model(x, training=False)
     x = keras.layers.Dropout(0.2)(x)
     outputs = keras.layers.Dense(1)(x)
+    outputs = keras.layers.Activation("linear", dtype="float32")(outputs)
     model = keras.Model(inputs, outputs)
 
     return model

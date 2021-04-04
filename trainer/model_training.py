@@ -1,3 +1,4 @@
+from tensorflow.keras import mixed_precision
 from tensorflow import keras
 import tensorflow as tf
 import data_loader
@@ -17,6 +18,9 @@ except ValueError:
 print("Number of accelerators: ", strategy.num_replicas_in_sync)
 BATCH_SIZE = 128 * strategy.num_replicas_in_sync
 print(f"Using a batch size of {BATCH_SIZE}")
+
+# Train using mixed-precision policy
+mixed_precision.set_global_policy("mixed_float16")
 
 
 def run(args):
