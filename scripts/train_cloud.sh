@@ -19,8 +19,8 @@ docker push ${IMAGE_URI}
 
 # Set up variables for training
 REGION=asia-east1
-TRAIN_FILES=gs://${BUCKET_NAME}/train_tfr
-VALIDATION_FILES=gs://${BUCKET_NAME}/validation_tfr
+TRAIN_FILES=gs://${BUCKET_NAME}/train_tfr/*.tfrec
+VALIDATION_FILES=gs://${BUCKET_NAME}/validation_tfr/*.tfrec
 
 # Submit job
 gcloud ai-platform jobs submit training ${JOB_NAME} \
