@@ -22,4 +22,4 @@ validation_ds = tfr_utils.prepare_dataset_tfr(validation_ds, train=False)
 # Serialize as TFRecords
 print("Serializing as TFRecords")
 tfr_utils.write_tfrecords(train_ds, config.TRAIN_TFR)
-tfr_utils.write_tfrecords(train_ds, config.VALID_TFR)
+tfr_utils.write_tfrecords(validation_ds, config.VALID_TFR)
