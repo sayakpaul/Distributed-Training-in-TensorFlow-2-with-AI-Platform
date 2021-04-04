@@ -28,6 +28,6 @@ gcloud ai-platform jobs submit training ${JOB_NAME} \
     --master-image-uri ${IMAGE_URI} \
     --config ./config.yaml \
     -- \
-    --bucket ${BUCKET_NAME} \
+    trainer/task.py --bucket ${BUCKET_NAME} \
     --train-pattern ${TRAIN_FILES} \
-    --valid-pattern ${VALIDATION_FILES} \
+    --valid-pattern ${VALIDATION_FILES}

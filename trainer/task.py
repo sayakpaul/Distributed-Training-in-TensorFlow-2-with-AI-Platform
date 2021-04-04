@@ -6,19 +6,16 @@ def get_args():
 	args_parser.add_argument(
 		"--bucket",
 		help="Name of the GCS Bucket.",
-		nargs="+",
 		required=True)
 	args_parser.add_argument(
 		"--train-pattern",
 		help="Pattern of GCS paths to training data.",
-		nargs="+",
 		required=True)
 	args_parser.add_argument(
 		"--valid-pattern",
 		help="Pattern of GCS paths to validation data.",
-		nargs="+",
 		required=True)
-	return vars(args_parser.parse_args())
+	return args_parser.parse_args()
 
 
 def main():

@@ -14,4 +14,5 @@ COPY trainer/model_training.py ./trainer/model_training.py
 COPY trainer/task.py ./trainer/task.py
 
 # Set up the entry point to invoke the trainer.
-ENTRYPOINT ["python", "-u", "trainer/task.py"]
+ENTRYPOINT ["python"]
+CMD ["trainer/task.py"]

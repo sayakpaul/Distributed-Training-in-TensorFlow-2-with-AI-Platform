@@ -21,8 +21,8 @@ print(f"Using a batch size of {BATCH_SIZE}")
 
 def run(args):
 	# Load data
-	train_files = tf.io.gfile.glob(args["train_pattern"])
-	validation_files = tf.io.gfile.glob(args["valid_pattern"])
+	train_files = tf.io.gfile.glob(args.train_pattern)
+	validation_files = tf.io.gfile.glob(args.valid_pattern)
 	train_ds = data_loader.batch_dataset(train_files, BATCH_SIZE)
 	validation_ds = data_loader.batch_dataset(validation_files, BATCH_SIZE, False)
 
@@ -30,7 +30,7 @@ def run(args):
 	es = keras.callbacks.EarlyStopping(patience=5, restore_best_weights=True)
 	reduce_lr = keras.callbacks.ReduceLROnPlateau()
 	log_dir = datetime.datetime.now().strftime("logs_%Y%m%d_%H%M%S")
-	tb = keras.callbacks.TensorBoard(log_dir="gs://" + args["bucket"] + "/" + log_dir)
+	tb = keras.callbacks.TensorBoard(log_dir="gs://" + args.bucket + "/" + log_dir)
 
 	# Linear transfer
 	with strategy.scope():
@@ -66,4 +66,4 @@ def run(args):
 
 	# Serialize model
 	model_name = datetime.datetime.now().strftime("cats_dogs_%Y%m%d_%H%M%S")
-	model.save("gs://" + args["bucket"] + "/" + model_name)
+	model.save("gs://" + args.bucket + "/" + model_name)
