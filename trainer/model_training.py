@@ -3,6 +3,7 @@ import tensorflow as tf
 import data_loader
 import model_utils
 import datetime
+import argparse
 
 # Detect training strategy
 try:
@@ -43,7 +44,8 @@ validation_ds = data_loader.batch_dataset(validation_files, BATCH_SIZE, False)
 # Set up callbacks
 es = keras.callbacks.EarlyStopping(patience=5, restore_best_weights=True)
 reduce_lr = keras.callbacks.ReduceLROnPlateau()
-tb = keras.callbacks.TensorBoard(log_dir="gs://" + args["bucket"] + "/logs")
+log_dir = datetime.datetime.now().strftime("logs_%Y%m%d_%H%M%S")
+tb = keras.callbacks.TensorBoard(log_dir="gs://" + args["bucket"] + "/" + log_dir)
 
 # Linear transfer
 with strategy.scope():
@@ -66,7 +68,7 @@ with strategy.scope():
 		if not isinstance(layer, keras.layers.BatchNormalization):
 			layer.trainable = True
 	model.compile(
-		optimizer=keras.optimizers.Adam(1e-5),
+		optimizer=keras.optimizers.Adam(1e-5 * strategy.num_replicas_in_sync),
 		loss=keras.losses.BinaryCrossentropy(from_logits=True),
 		metrics=[keras.metrics.BinaryAccuracy()],
 	)
