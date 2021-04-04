@@ -36,7 +36,7 @@ def run(args):
 	with strategy.scope():
 		model = model_utils.get_model()
 		model.compile(
-			optimizer="adam",
+			optimizer=keras.optimizers.Adam(0.001 * strategy.num_replicas_in_sync),
 			loss=keras.losses.BinaryCrossentropy(from_logits=True),
 			metrics=[keras.metrics.BinaryAccuracy()],
 		)

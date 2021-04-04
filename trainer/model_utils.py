@@ -3,7 +3,7 @@ import config
 
 def get_model():
 	# Construct base model
-	base_model = keras.applications.MobileNetV3Small(
+	base_model = keras.applications.MobileNetV3Large(
 		weights="imagenet",
 		input_shape=(config.IMAGE_SIZE, config.IMAGE_SIZE, 3),
 		include_top=False,
