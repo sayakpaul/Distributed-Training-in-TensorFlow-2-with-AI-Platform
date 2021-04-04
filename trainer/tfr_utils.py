@@ -7,7 +7,7 @@ def augment(image):
 	image = tf.image.random_flip_left_right(image)
 	image = tf.image.random_flip_up_down(image)
 
-	if tf.random.uniform([], tf.float32) < 0.5:
+	if tf.random.uniform([], minval=0, maxval=1) < 0.5:
 		image = tf.image.rot90(image)
 	return image
 
