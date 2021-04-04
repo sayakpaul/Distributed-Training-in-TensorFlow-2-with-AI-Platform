@@ -26,7 +26,7 @@ VALIDATION_FILES=gs://${BUKCET_NAME}/validation_tfr
 gcloud ai-platform jobs submit training ${JOB_NAME} \
     --region ${REGION} \
     --master-image-uri ${IMAGE_URI} \
-    --config ./config.yaml
+    --config ./config.yaml \
     -- \
     --bucket ${BUKCET_NAME} \
     --train-pattern ${TRAIN_FILES} \
