@@ -14,9 +14,9 @@ Advantages of training in this manner (as opposed to doing that in a Jupyter Not
 - Resources (GPUs, CPUs, memory, etc.) are fully managed by the custom service we are using to orchestrate our training workflow. In this case, it is AI Platform. 
 - Resources are automatically provisioned and de-provisioned by the service. It helps to prevent any unnecessary costs. 
 
-Consider the following scenario. You are operating in a Jupyter Notebook environment on Cloud that is configured with multiple V100 GPUs. You have started your training run and you then went out to meet an old friend. Now, what if because of a pesky bug in the code, the actual training did not start? Your development environment will likely continue to run and you will incur charges for practically nothing. Of course, this won’t happen if you configured alert metrics. 
-
-With the workflow demonstrated in this repository, you can get away from the above situation way more easily. 
+**Other recipes included**:
+* Mixed-precision training (this will _only_ work if you are using Tensor core GPUs like V100).
+* Serialization of resized and augmented TFRecords. This eliminates the augmentation and resizing ops from our data loading providing efficiency.
 
 ## Steps to run the code
 
@@ -65,6 +65,8 @@ We will use a cheap [AI Platform Notebook](https://cloud.google.com/ai-platform-
     ```
 
 ... and done! 
+
+Find my TensorBoard logs [here](https://tensorboard.dev/experiment/CV82lAf9R2OeUNzdxh7pfQ/). 
 
 ## About the files
 
