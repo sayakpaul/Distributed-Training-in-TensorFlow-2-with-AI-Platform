@@ -28,7 +28,7 @@ def run(args):
 
 	# Set up callbacks
 	es = keras.callbacks.EarlyStopping(patience=5, restore_best_weights=True)
-	reduce_lr = keras.callbacks.ReduceLROnPlateau()
+	reduce_lr = keras.callbacks.ReduceLROnPlateau(patience=3)
 	log_dir = datetime.datetime.now().strftime("logs_%Y%m%d_%H%M%S")
 	tb = keras.callbacks.TensorBoard(log_dir="gs://" + args.bucket + "/" + log_dir)
 
