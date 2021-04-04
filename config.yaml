@@ -1,0 +1,4 @@
+trainingInput:
+  scaleTier: CUSTOM
+  # Configure a master worker with 4 V100 GPUs
+  masterType: complex_model_m_p100
