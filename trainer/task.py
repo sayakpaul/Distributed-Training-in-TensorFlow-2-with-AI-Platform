@@ -18,7 +18,7 @@ def get_args():
 		help="Pattern of GCS paths to validation data.",
 		nargs="+",
 		required=True)
-	return args_parser.parse_args()
+	return vars(args_parser.parse_args())
 
 
 def main():
