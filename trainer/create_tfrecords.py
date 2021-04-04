@@ -4,7 +4,7 @@
 import tensorflow_datasets as tfds
 tfds.disable_progress_bar()
 
-import data_utils
+import tfr_utils
 import config
 
 # Load the cats-dogs dataset
@@ -16,10 +16,10 @@ train_ds, validation_ds = tfds.load(
 )
 
 # Prepare the datasets for serialization
-train_ds = data_utils.prepare_dataset_tfr(train_ds)
-validation_ds = data_utils.prepare_dataset_tfr(validation_ds, train=False)
+train_ds = tfr_utils.prepare_dataset_tfr(train_ds)
+validation_ds = tfr_utils.prepare_dataset_tfr(validation_ds, train=False)
 
 # Serialize as TFRecords
 print("Serializing as TFRecords")
-data_utils.write_tfrecords(train_ds, config.TRAIN_TFR)
-data_utils.write_tfrecords(train_ds, config.VALID_TFR)
+tfr_utils.write_tfrecords(train_ds, config.TRAIN_TFR)
+tfr_utils.write_tfrecords(train_ds, config.VALID_TFR)

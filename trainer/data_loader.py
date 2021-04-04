@@ -11,6 +11,7 @@ def count_data_items(filenames):
     n = [int(re.compile(r"-([0-9]*)\.").search(filename).group(1)) for filename in filenames]
     return np.sum(n)
 
+
 def read_tfrecord(example):
 	features = {
 		"image": tf.io.FixedLenFeature([], tf.string),
@@ -35,7 +36,7 @@ def load_dataset(filenames):
 	return dataset
 
 
-def batch_dataset(filenames, batch_size, train):
+def batch_dataset(filenames, batch_size, train=True):
 	dataset = load_dataset(filenames)
 	if train:
 		dataset = dataset.repeat()
