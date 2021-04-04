@@ -41,7 +41,7 @@ We will use a cheap [AI Platform Notebook](https://cloud.google.com/ai-platform-
     $ gsutil mb ${BUCKET_NAME}
     ```
 
-You can additionally pass in the zone where you want to create the bucket like the following: `$ gsutil mb -l asia-east1 ${BUCKET_NAME}`. If all of your resources will be provisioned from that same zone, then you will likely get slightly performance boost. 
+   You can additionally pass in the zone where you want to create the bucket like the following: `$ gsutil mb -l asia-east1 ${BUCKET_NAME}`. If all of your resources will be provisioned from that same zone, then you will likely get slightly performance boost. 
 
 
 3. Create TFRecords and upload them to the GCS Bucket.
