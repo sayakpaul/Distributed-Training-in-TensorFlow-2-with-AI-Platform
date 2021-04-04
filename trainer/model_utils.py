@@ -16,6 +16,7 @@ def get_model():
 	x = keras.layers.experimental.preprocessing.Rescaling(
 		scale=1. / 127.5, offset=-1)(inputs)
 	x = base_model(x, training=False)
+	x = keras.layers.Dropout(0.2)(x)
 	outputs = keras.layers.Dense(1)(x)
 	model = keras.Model(inputs, outputs)
 
