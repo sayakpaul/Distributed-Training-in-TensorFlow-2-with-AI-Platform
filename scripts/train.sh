@@ -13,6 +13,10 @@ IMAGE_REPO_NAME=tensorflow_gpu_cats_dogs
 IMAGE_TAG=catsdogs_tf_gpu
 IMAGE_URI=gcr.io/${PROJECT_ID}/${IMAGE_REPO_NAME}:${IMAGE_TAG}
 
+# Build and push the docker image
+docker build -f Dockerfile -t ${IMAGE_URI} ./
+docker push ${IMAGE_URI}
+
 # Set up variables for training
 REGION=asia-east1
 TRAIN_FILES=gs://${BUKCET_NAME}/train_tfr
@@ -22,7 +26,7 @@ VALIDATION_FILES=gs://${BUKCET_NAME}/validation_tfr
 gcloud ai-platform jobs submit training ${JOB_NAME} \
     --region ${REGION} \
     --master-image-uri ${IMAGE_URI} \
-    --config ../config.yaml
+    --config ./config.yaml
     -- \
     --bucket ${BUKCET_NAME} \
     --train-pattern ${TRAIN_FILES} \
