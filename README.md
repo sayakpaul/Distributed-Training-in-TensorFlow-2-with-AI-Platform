@@ -4,7 +4,7 @@ Accompanying blog post: [TBD]
 
 This repository provides code to train an image classification model in a distributed manner with the [`tf.distribute.MirroredStrategy`](https://www.tensorflow.org/api_docs/python/tf/distribute/MirroredStrategy) strategy (single host multiple GPUs) in TensorFlow 2.4.1. We make use of the MLOps stack to do this:
 
-- Docker to create a custom container so that the code is reproducible. 
+- Docker to create a custom image so that the code is reproducible. 
 - [AI Platform](https://cloud.google.com/ai-platform/docs/technical-overview) `training` jobs (by GCP) to manage running the custom Docker container using multiple GPUs. It also handles automatic provisioning and de-provisioning of resources.  
 
 Advantages of training in this manner (as opposed to doing that in a Jupyter Notebook environment) are the following:
