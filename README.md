@@ -1,6 +1,6 @@
 # Distributed-Training-in-TensorFlow-2-with-AI-Platform
 
-Accompanying blog post: [TBD]
+Accompanying blog post: [Distributed Training in TensorFlow with AI Platform & Docker](https://sayak.dev/distributed-training/)
 
 This repository provides code to train an image classification model in a distributed manner with the [`tf.distribute.MirroredStrategy`](https://www.tensorflow.org/api_docs/python/tf/distribute/MirroredStrategy) strategy (single host multiple GPUs) in TensorFlow 2.4.1. We make use of the MLOps stack to do this:
 
@@ -65,7 +65,7 @@ We will use a cheap [AI Platform Notebook](https://cloud.google.com/ai-platform-
 
 ... and done! 
 
-Find my TensorBoard logs online [here](https://tensorboard.dev/experiment/CV82lAf9R2OeUNzdxh7pfQ/). 
+Find my TensorBoard logs online [here](https://tensorboard.dev/experiment/AWPrJesPSxyCX0GSmJMk1A). 
 
 ## About the files 🍖
 
