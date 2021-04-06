@@ -1,4 +1,8 @@
 trainingInput:
   scaleTier: CUSTOM
-  # Configure a master worker with 4 V100 GPUs
-  masterType: complex_model_m_v100
+  # Configure a master worker with 2 V100 GPUs
+  masterType: n1-standard-8 # Specify the base machine type
+  masterConfig:
+    acceleratorConfig:
+      count: 2
+      type: NVIDIA_TESLA_V100
