@@ -65,7 +65,7 @@ We will use a cheap [AI Platform Notebook](https://cloud.google.com/ai-platform-
 
 ... and done! 
 
-Find my TensorBoard logs online [here](https://tensorboard.dev/experiment/AWPrJesPSxyCX0GSmJMk1A). 
+Find my TensorBoard logs online [here](https://tensorboard.dev/experiment/AWPrJesPSxyCX0GSmJMk1A). The training artifacts (`SavedModel`s, TensorBoard logs, and TFRecords) can be found [here](https://github.com/sayakpaul/Distributed-Training-in-TensorFlow-2-with-AI-Platform/releases/tag/v1.0.0).
 
 ## About the files 🍖
 
